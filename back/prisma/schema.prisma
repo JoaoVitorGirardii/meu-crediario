@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contratos {
+  contrato         String     @id
+  data             DateTime   @db.Date()
+  mes              Int        @db.SmallInt
+  ano              Int        @db.SmallInt
+  valor_total      Float      @db.DoublePrecision()
+  valor_entrada    Float      @db.DoublePrecision()
+  valor_financiado Float      @db.DoublePrecision()
+  Parcelas         Parcelas[]
+
+  @@map("contratos")
+}
+
+model Parcelas {
+  id                        Int       @id @default(autoincrement())
+  valor_vencimento          Float     @db.DoublePrecision()
+  data_vencimento           DateTime  @db.Date()
+  mes_vencimento            Int       @db.SmallInt()
+  ano_vencimento            Int       @db.SmallInt()
+  data_ultimo_pagamento     DateTime? @db.Date()
+  mes_data_ultimo_pagamento Int?      @db.SmallInt()
+  ano_data_ultimo_pagamento Int?      @db.SmallInt()
+  total_pago                Float     @db.DoublePrecision()
+  capital_aberto            Int
+  contrato                  Contratos @relation(fields: [contrato_id], references: [contrato])
+  contrato_id               String
+
+  @@map("parcelas")
+}
