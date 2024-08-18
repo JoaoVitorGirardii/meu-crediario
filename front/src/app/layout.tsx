@@ -5,6 +5,8 @@ import { TopMenu } from "@/components/top-menu";
 import { Footer } from "@/components/footer";
 import { MenuLateral } from "@/components/menu-lateral";
 import { Container } from "@/components/container";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -18,14 +20,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="pt-br">
             <body className={openSans.className}>
-                <main className="flex min-h-screen text-text prose">
+                <main className="flex min-h-screen text-text prose bg-background">
 
                     <MenuLateral/>
 
                     <Container>
                         <TopMenu/>
-                           
-                            { children }
+                            <Suspense fallback={<Loading/>}>
+                                { children }
+                            </Suspense>
                         
                         <Footer/>
                     </Container>

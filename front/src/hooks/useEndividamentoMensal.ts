@@ -8,9 +8,7 @@ export default function useEndividamentoMensal(ano: number) {
     const [endividamentoMensal, setEndividamentoMensal] = useState<EndividamentoMensal>({} as EndividamentoMensal)
     
     async function getEndividamentoMensal(ano: number) {
-        API.get<EndividamentoMensal>("/desafio/todos", {params: {
-            ano
-        }})
+        API.get<EndividamentoMensal>("/desafio/todos", {params: { ano }})
         .then(({data}) => {
             setEndividamentoMensal(data)
         })

@@ -16,7 +16,10 @@ export default function useContratos({ data = "desc" }: useContratosProps) {
             API.get<Contrato[]>("/consultar/contrato", { params: {
                 data
             }}).then(({data}) => {
+                console.log(data); 
                 setContratos(data)
+            }).catch(erro => {
+                console.log(erro);  
             })
         }
     , [])

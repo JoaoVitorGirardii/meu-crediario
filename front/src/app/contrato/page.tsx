@@ -8,6 +8,7 @@ import { DialogEndividamento } from "@/components/dialog-endividamento";
 import { RowContrato } from "@/components/row-contrato";
 import { Input } from "@/components/ui/input";
 import { filtroContratos } from "@/lib/utils";
+import Loading from "../loading";
 
 export default function Contrato() {
 
@@ -64,7 +65,7 @@ export default function Contrato() {
 
                 <div className="flex w-full justify-center items-center">
                     <div className="w-full pb-32 bg-background">
-                        <Suspense fallback="Carregando dados...">
+                        <Suspense fallback={<Loading/>}>
                             {contratosFiltrados.map((contr) => {
                                 return (
                                     <RowContrato

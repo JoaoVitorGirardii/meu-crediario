@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/assets/logo-meu-crediario-2023.svg";
 
 export default function Home() {
+    console.log("API BACKEND HOME: ", process.env.BACKEND_URL)
     return (
         <div className="flex col-span-12 flex-col w-full prose p-4 pt-16 bg-background">
             <Image src={logo} alt="" height={100} className="mb-4" />

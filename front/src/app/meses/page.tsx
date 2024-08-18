@@ -4,6 +4,7 @@ import { RowMeses } from "@/components/row-meses";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Suspense, useState } from "react";
 import useMaiorDivida from "@/hooks/useMaiorDivida";
+import Loading from "../loading";
 
 export default function Desafio() {
     const [ano, setAno] = useState(2023)
@@ -46,7 +47,7 @@ export default function Desafio() {
 
                 <div className="flex w-full justify-center items-center">
                     <div className="w-full pb-32 bg-background">
-                        <Suspense fallback="Carregando...">
+                        <Suspense fallback={<Loading/>}>
                             {endividamentoMensal.dados?.map((dado) => {
                                 if (dado.totalDivida !== 0) {
                                     return (
