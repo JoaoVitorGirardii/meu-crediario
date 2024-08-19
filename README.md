@@ -43,3 +43,10 @@ Esses comandos criarão a base de dados de acordo com as migrations criadas no P
 Com isso, já será possível acessar o sistema por http://localhost:3000.
 
 ![image](https://github.com/user-attachments/assets/941db926-dccd-4a85-8e21-c501a9477005)
+
+## Stack utilizada
+
+**Front-end:** React, Next.js, TailwindCSS, Shadcn, Typescript
+
+**Back-end:** Node, Express, Typescript
+
