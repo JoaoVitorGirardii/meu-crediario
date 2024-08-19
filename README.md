@@ -26,7 +26,7 @@ O container da API ficará disponível na porta 3333.
 
 O container do Front-end ficará disponível na porta 3000, onde será possível acessar o sistema.
 
-### Extra
+## Extra
 
 Por algum motivo, o comando para executar a migração dos dados automaticamente não funcionou. Portanto, será necessário acessar o container do backend e executar alguns comandos.
 
