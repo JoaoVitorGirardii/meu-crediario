@@ -5,7 +5,7 @@
 Clone o projeto
 
 ```bash
-  git clone https://github.com/JoaoVitorGirardii/meu-crediario
+  git clone https://github.com/JoaoVitorGirardii/meu-crediario.git
 ```
 
 Entre no diretório do projeto
