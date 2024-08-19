@@ -1,13 +1,22 @@
 'use client'
-
-import { useScreenWidth } from "@/hooks/useScreenWidth"
-import { ReactNode } from "react"
+import { ReactNode, useEffect, useState } from "react"
 
 type ContainerProps = {
     children : ReactNode
 }
 export function Container({children}: ContainerProps) {
-    const largura = useScreenWidth()
+
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null
+    }
+
+    const largura = window.innerWidth ?? 0
     
     if (largura < 640) return children
     

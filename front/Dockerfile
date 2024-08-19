@@ -1,19 +1,23 @@
-# Use a imagem oficial do Node.js versão 22.3.0
+# Use a imagem oficial do Node.js versão 22.4-alpine
 FROM node:22.4-alpine
 
 # Crie o diretório de trabalho no contêiner
 WORKDIR /front
 
-# Copie o código fonte para o diretório de trabalho no contêiner
-COPY . .
+# Copie o package.json e o package-lock.json para o diretório de trabalho
+COPY package*.json ./
 
+# Instale as dependências
 RUN npm install
 
-# RUN npm run prisma:generate
-# RUN npx prisma migrate dev
+# Copie o restante do código fonte para o diretório de trabalho no contêiner
+COPY . .
 
-# Exponha a porta em que o servidor Node.js irá rodar (por exemplo, porta 3000)
+# Construa a aplicação Next.js para produção
+RUN npm run build
+
+# Exponha a porta em que o servidor Next.js irá rodar (por padrão, a porta 3000)
 EXPOSE 3000
 
-# Comando padrão para executar a aplicação
-CMD ["npm", "run", "dev"]
+# Comando padrão para iniciar a aplicação em modo produção
+CMD ["npm", "start"]

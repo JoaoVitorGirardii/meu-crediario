@@ -1,10 +1,20 @@
 "use client"
 import logo from "@/assets/logo-meu-crediario-2023.svg"
-import { useScreenWidth } from "@/hooks/useScreenWidth"
 import Image from "next/image"
+import { useEffect, useState } from "react";
 
 export function MenuLateral() {
-    const largura = useScreenWidth()
+    
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null
+    }
+    const largura = window.innerWidth ?? 0
 
     if (largura < 640) return
 
