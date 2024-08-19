@@ -1,36 +1,34 @@
-# Processo de inicialização
+# Processo de Inicialização
 
 #### Iniciando
 
-Clone o projeto
+Clone o projeto:
 
 ```bash
-  git clone https://github.com/JoaoVitorGirardii/meu-crediario.git
+git clone https://github.com/JoaoVitorGirardii/meu-crediario.git
 ```
 
-Entre no diretório do projeto
+Entre no diretório do projeto:
 
 ```bash
   cd meu-crediario
 ```
 
-acessar a pasta back, nela vai conter o arquivo ".env.exemple"
-renomei esse arquivo apenas para .env 
+Acesse a pasta back. Nela, você encontrará o arquivo .env.example. Renomeie este arquivo para .env.
 
-#### inicialização do container
+#### Inicialização do Container
 
 ```bash
   docker-compose up --build
 ```
 
-Container da API ficara disponivel na porta 3333
+O container da API ficará disponível na porta 3333.
 
-Container da Front-end ficara disponivel na porta 3000 aonde será posivel acesar o sistema
+O container do Front-end ficará disponível na porta 3000, onde será possível acessar o sistema.
 
+### Extra
 
-#### Extra
-
-Por algum motivo não funcionou o comando para executar a migration dos dados automaticamente para isso será nesessario acesar o container do backend e executar alguns comando.
+Por algum motivo, o comando para executar a migração dos dados automaticamente não funcionou. Portanto, será necessário acessar o container do backend e executar alguns comandos.
 
 ```bash
   npx prisma migrate dev
@@ -40,11 +38,8 @@ Por algum motivo não funcionou o comando para executar a migration dos dados au
   npx prisma db seed
 ```
 
-ele ira executar criar e criar a base de acordo com as migrations criadas no prisma
+Esses comandos criarão a base de dados de acordo com as migrations criadas no Prisma.
 
-OBS: caso não crie o banco meucrediario criar ele manualmente e executar novamente o comando
-
-
-com isso ja sera possivel acessar o sistema por http://localhost:3000
+Com isso, já será possível acessar o sistema por http://localhost:3000.
 
 ![image](https://github.com/user-attachments/assets/941db926-dccd-4a85-8e21-c501a9477005)
